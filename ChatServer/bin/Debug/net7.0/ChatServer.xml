@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChatServer</name>
+    </assembly>
+    <members>
+        <member name="M:ChatServer.Controllers.ChatsController.GetChats">
+            <summary>
+            Return Chats to User.
+            </summary>
+            <response code="400">
+            Invalid auth_token:
+            
+                {
+                    "code": 9007,
+                    "message": "You are not authorized"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.ChatsController.AddUserToChat(ChatServer.DTO.AddUserDTO)">
+            <summary>
+            Return Chats to User.
+            </summary>
+            <response code="400">
+            Invalid auth_token:
+            
+                {
+                    "code": 9007,
+                    "message": "You are not authorized"
+                }
+                
+            Invited User doesn`t exist:
+            
+                {
+                    "code": 1126,
+                    "message": "Unable to create Chat. Chat does not exist"
+                }   
+                
+            User has no permission to this Chat:
+            
+                {
+                    "code": 1013,
+                    "message": "User has no permission to this Chat"
+                }
+            Chat is not group chat:
+            
+                {
+                    "code": 1036,
+                    "message": "Chat is not group chat"
+                }
+            This user already in this chat:
+            
+                {
+                    "code": 1036,
+                    "message": "Chat is not group chat"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.ChatsController.CreateChat(ChatServer.DTO.ChatInputDTO)">
+            <summary>
+            Create Chat.
+            </summary>
+            <response code="400">
+            Invited User doesn`t exist:
+            
+                {
+                    "code": 1037,
+                    "message": "Invited User doesn't exist"
+                }
+            Invited User doesn`t exist:
+            
+                {
+                    "code": 1037,
+                    "message": "Invited User is you"
+                }
+                
+            Invited User doesn`t exist:
+            
+                {
+                    "code": 1126,
+                    "message": "Unable to create Chat. Chat does not exist"
+                }
+            Chat name can not be null:
+            
+                {
+                    "code": 1027,
+                    "message": "Chat name can not be null"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.MessagesController.GetAllMessagesFromChat(System.Int32)">
+            <summary>
+            Returns all messages by chosen chat.
+            </summary>
+            <response code="400">
+            Invalid auth_token:
+            
+                {
+                    "code": 9007,
+                    "message": "You are not authorized"
+                }
+            
+            Chat does not exist:
+            
+                {
+                    "code": 1035,
+                    "message": "Unable to retrieve Chat. Chat with the specified primary key does not exist"
+                }
+                
+            User has no permission to this Chat:
+            
+                {
+                    "code": 1013,
+                    "message": "User has no permission to this Chat"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.MessagesController.SendMessage(ChatServer.DTO.InputMessageDTO)">
+            <summary>
+            Send Message.
+            </summary>
+            <response code="400">
+            Invalid auth_token:
+            
+                {
+                    "code": 9007,
+                    "message": "You are not authorized"
+                }
+            
+            Chat does not exist:
+            
+                {
+                    "code": 1035,
+                    "message": "Unable to retrieve Chat. Chat with the specified primary key does not exist"
+                }
+                
+            User has no permission to this Chat:
+            
+                {
+                    "code": 1013,
+                    "message": "User has no permission to this Chat"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.UsersController.Login(ChatServer.DTO.LoginInputDTO)">
+            <summary>
+            Return token from login.
+            </summary>
+            <response code="400">
+            Incorrect login:
+            
+                {
+                    "code": 3003,
+                    "message": "Invalid login"
+                }
+            
+            Incorrect password:
+            
+                {
+                    "code": 3003,
+                    "message": "Invalid password"
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.UsersController.Register(ChatServer.DTO.UserRegisterDTO)">
+            <summary>
+            Create user and return token.
+            </summary>
+            <response code="400">
+            User already exists:
+            
+                {
+                    "code": 3033,
+                    "message": "Unable to register user. User already exists."
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.UsersController.EditUser(ChatServer.DTO.UserEditDTO)">
+            <summary>
+            Edit user.
+            </summary>
+            <response code="400">
+            Incorrect password:
+            
+                {
+                    "code": 3003,
+                    "message": "Invalid password"
+                }
+            Incorrect password:
+            
+                {
+                    "code": 3033,
+                    "message": "Unable to change email. User with this email already exists."
+                }
+            </response>
+        </member>
+        <member name="M:ChatServer.Controllers.UsersController.FindUser(System.String)">
+            <summary>
+            Find User.
+            </summary>
+            <response code="400">
+            Incorrect login:
+            
+                {
+                    "code": 3003,
+                    "message": "Invalid login"
+                }
+            
+            Incorrect password:
+            
+                {
+                    "code": 3003,
+                    "message": "Invalid password"
+                }
+            </response>
+        </member>
+    </members>
+</doc>
